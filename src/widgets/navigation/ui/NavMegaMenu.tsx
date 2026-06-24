@@ -158,6 +158,11 @@ const TABS: TabConfig[] = [
       { name: "DeepSeek", desc: "Reasoning модель" },
     ],
   },
+  {
+    key: "queue",
+    label: "Очередь",
+    route: "/queue",
+  },
 ];
 
 export function NavMegaMenu() {

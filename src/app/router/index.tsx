@@ -5,6 +5,7 @@ import DesignPage from "@/pages/DesignPage";
 import VideoPage from "@/pages/VideoPage";
 import AudioPage from "@/pages/AudioPage";
 import AgentsPage from "@/pages/AgentsPage";
+import QueuePage from "@/pages/QueuePage";
 import AgentsLandingPage from "@/pages/AgentsLandingPage";
 import ToolkitPage from "@/pages/ToolkitPage";
 import HistoryPage from "@/pages/HistoryPage";
@@ -26,6 +27,7 @@ const routes: Record<string, React.ComponentType> = {
   "/video": VideoPage,
   "/audio": AudioPage,
   "/agents": AgentsPage,
+  "/queue": QueuePage,
   "/studios": StudiosPage,
   "/toolkit": ToolkitPage,
   "/history": HistoryPage,

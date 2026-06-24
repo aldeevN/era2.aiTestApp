@@ -6,10 +6,16 @@ import { OnboardingTour } from "@/features/onboarding";
 import { CopyToastProvider } from "@/features/copy-toast";
 import { DailyCheckIn } from "@/features/promo";
 import { CornerPromo } from "@/features/promo";
+import { QueueProvider, useQueue } from "@/features/generation-queue";
+import { GlobalStatusBar } from "@/features/generation-queue/ui";
+import { useNavigate } from "@/shared/routing";
 
-export default function App() {
+function AppShell() {
+  const { state } = useQueue();
+  const navigate = useNavigate();
+
   return (
-    <AppProviders>
+    <>
       <Layout>
         <ErrorBoundary>
           <AppRoutes />
@@ -19,6 +25,17 @@ export default function App() {
       <CopyToastProvider />
       <DailyCheckIn />
       <CornerPromo />
+      <GlobalStatusBar tasks={state.tasks} onNavigate={() => navigate({ to: "/queue" })} />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <AppProviders>
+      <QueueProvider>
+        <AppShell />
+      </QueueProvider>
     </AppProviders>
   );
 }
